@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark Point | Web3 Ecosystem</title>
+    <title>Spark Point | Web3 Matrix</title>
     <style>
         :root {
             --gold: #ffcc00;
-            --green: #22c55e;
-            --dark-bg: #0a0a0c;
-            --card-bg: #16161a;
+            --green: #00ff88;
+            --bg: #050505;
+            --card: #121214;
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 50px;
+            line-height: 1.6;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-        }
+        header { text-align: center; padding: 60px 20px; }
 
         .project-title {
             color: var(--gold);
@@ -34,10 +31,6 @@
             font-weight: 900;
             text-transform: uppercase;
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
             text-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
         }
 
@@ -47,11 +40,12 @@
             gap: 25px;
             max-width: 1200px;
             width: 90%;
+            margin-bottom: 50px;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid #2d2d33;
+            background: var(--card);
+            border: 1px solid #222;
             border-radius: 24px;
             padding: 30px;
             text-align: center;
@@ -63,131 +57,132 @@
             transform: translateY(-8px);
         }
 
-        .card h2 {
-            font-size: 2rem;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+        .card h2 { font-size: 2rem; margin: 10px 0; }
+
+        .price-tag {
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin: 20px 0;
+            font-weight: 800;
         }
 
-        .price {
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .btn-group { display: flex; flex-direction: column; gap: 12px; }
 
         .btn {
-            padding: 14px;
+            padding: 16px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: 0.2s;
             cursor: pointer;
             border: none;
         }
 
-        .btn-buy {
-            background-color: var(--green);
-            color: #000;
-        }
+        .btn-buy { background-color: var(--green); color: #000; }
+        .btn-info { background-color: var(--gold); color: #000; }
 
-        .btn-info {
-            background-color: var(--gold);
-            color: #000;
-        }
+        .btn:hover { filter: brightness(1.2); transform: scale(1.02); }
 
-        .btn:hover {
-            filter: brightness(1.2);
-            transform: scale(1.02);
-        }
-
-        /* Инструкция */
-        .rules-box {
-            background: #111114;
-            border-left: 5px solid var(--gold);
-            padding: 30px;
-            margin-top: 60px;
-            max-width: 800px;
+        /* Блок правил */
+        .legal-section {
+            max-width: 900px;
             width: 90%;
-            border-radius: 12px;
+            background: #0f0f11;
+            padding: 40px;
+            margin: 40px 0 80px 0;
+            border-radius: 20px;
+            border: 1px solid #1a1a1c;
         }
 
-        .rules-box h3 { color: var(--gold); margin-top: 0; }
-        .rules-box p { color: #94a3b8; line-height: 1.6; }
+        .legal-section h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
 
+        .rule-item { margin-bottom: 20px; }
+        .rule-item b { color: #eee; display: block; margin-bottom: 5px; }
+        .rule-item p { color: #888; margin: 0; font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1 class="project-title">⚡ Spark Point 💎</h1>
-    <p style="color: #64748b;">Premium Web3 Project Packages</p>
+    <p style="color: #64748b;">Децентрализованная P2P экосистема</p>
 </header>
 
 <div class="container">
     <div class="card">
         <h2>🚀 Flash</h2>
-        <div class="price">1 500 ₽</div>
+        <div class="price-tag">50$</div>
         <div class="btn-group">
-            <a href="#" class="btn btn-info" onclick="alert('Уровни: 3\nЗадачи: Базовый листинг\nДоход: до 15%')">Посмотреть пакет</a>
+            <button class="btn btn-info" onclick="alert('Тип: Скоростной\nУровней: 3\nВыход: 600$\nОсобенность: Самый быстрый заработок без промежуточного возврата.')">Посмотреть</button>
             <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
         </div>
     </div>
 
     <div class="card">
-        <h2>🏎️ Rapid</h2>
-        <div class="price">3 000 ₽</div>
+        <h2>💰 Rapid</h2> <div class="price-tag">100$</div>
         <div class="btn-group">
-            <a href="#" class="btn btn-info" onclick="alert('Уровни: 5\nЗадачи: Стейкинг и фарминг\nДоход: до 25%')">Посмотреть пакет</a>
+            <button class="btn btn-info" onclick="alert('Тип: Скоростной\nУровней: 3\nВыход: 1200$\nОсобенность: Максимальная скорость закрытия циклов.')">Посмотреть</button>
             <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
         </div>
     </div>
 
     <div class="card">
         <h2>🛡️ Vault</h2>
-        <div class="price">7 500 ₽</div>
+        <div class="price-tag">20$</div>
         <div class="btn-group">
-            <a href="#" class="btn btn-info" onclick="alert('Уровни: 8\nЗадачи: Управление пулами\nДоход: до 40%')">Посмотреть пакет</a>
+            <button class="btn btn-info" onclick="alert('Тип: Масштаб\nУровней: 10\nВыход: 100 000$\nОсобенность: Возврат входа после 2-х приглашенных.')">Посмотреть</button>
             <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
         </div>
     </div>
 
     <div class="card">
-        <h2>⚙️ Validator</h2>
-        <div class="price">15 000 ₽</div>
+        <h2>💵 Validator</h2> <div class="price-tag">50$</div>
         <div class="btn-group">
-            <a href="#" class="btn btn-info" onclick="alert('Уровни: 12\nЗадачи: Валидация транзакций\nДоход: до 60%')">Посмотреть пакет</a>
+            <button class="btn btn-info" onclick="alert('Тип: Масштаб\nУровней: 10\nВыход: 200 000$\nОсобенность: Безопасный старт и авто-апгрейды.')">Посмотреть</button>
             <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
         </div>
     </div>
 
     <div class="card">
         <h2>👑 Genesis</h2>
-        <div class="price">30 000 ₽</div>
+        <div class="price-tag">100$</div>
         <div class="btn-group">
-            <a href="#" class="btn btn-info" onclick="alert('Уровни: Безлимит\nЗадачи: Владение экосистемой\nДоход: VIP распределение')">Посмотреть пакет</a>
+            <button class="btn btn-info" onclick="alert('Тип: Масштаб\nУровней: 10\nВыход: 400 000$\nОсобенность: VIP статус и полная автоматизация.')">Посмотреть</button>
             <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
         </div>
     </div>
 </div>
 
-<div class="rules-box">
-    <h3>Инструкция и правила:</h3>
-    <p>1. Для участия необходим активный баланс в системе Spark Point.</p>
-    <p>2. Каждый пакет открывает доступ к определенному количеству уровней заработка.</p>
-    <p>3. Выплаты производятся автоматически на ваш привязанный кошелек.</p>
-    <p>4. Повторная покупка пакета того же уровня обновляет лимиты участия.</p>
+<div class="legal-section">
+    <h3>Инструкция и юридические правила участия</h3>
+    
+    <div class="rule-item">
+        <b>1. Природа системы</b>
+        <p>Spark Point является децентрализованным алгоритмом на смарт-контрактах. Это не инвестиционный фонд. Все транзакции являются добровольными безвозмездными взносами между участниками по принципу P2P.</p>
+    </div>
+
+    <div class="rule-item">
+        <b>2. Механика выплат и "Безопасный старт"</b>
+        <p>Для пакетов Vault, Validator и Genesis предусмотрен возврат суммы входа сразу после активации 2-х лично приглашенных участников. В пакетах Flash и Rapid возврат не предусмотрен — они работают на максимальную скорость достижения финальной цели.</p>
+    </div>
+
+    <div class="rule-item">
+        <b>3. Отсутствие гарантий и ответственности</b>
+        <p>Доход не является пассивным. Мы не гарантируем прибыль. Результат зависит исключительно от активности участника и его структуры. Смарт-контракт работает автономно: апгрейды уровней и распределение средств происходят автоматически. Участник берет на себя полную ответственность за свои действия и финансовые риски.</p>
+    </div>
+
+    <div class="rule-item">
+        <b>4. Условие участия</b>
+        <p>Обязательным условием для продвижения по маркетингу является приглашение минимум 2-х активных партнеров. Без выполнения этого условия алгоритм не сможет генерировать вознаграждения.</p>
+    </div>
 </div>
 
 </body>
