@@ -3,149 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark Point — Web3</title>
+    <title>Spark Point | Web3 Ecosystem</title>
     <style>
+        :root {
+            --gold: #ffcc00;
+            --green: #22c55e;
+            --dark-bg: #0a0a0c;
+            --card-bg: #16161a;
+        }
+
         body {
-            background-color: #0a0a0c; /* Очень темный фон */
-            color: #e2e8f0;
-            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-bottom: 50px;
         }
 
-        header { text-align: center; padding: 40px 0; }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
 
-        /* Золотое имя проекта */
-        .project-name {
-            color: #ffd700; 
-            font-size: 3rem;
-            font-weight: 800;
+        .project-title {
+            color: var(--gold);
+            font-size: 3.5rem;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 3px;
             margin: 0;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
         }
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             max-width: 1200px;
-            width: 100%;
-            margin-top: 30px;
+            width: 90%;
         }
 
         .card {
-            background: #16161a;
+            background: var(--card-bg);
             border: 1px solid #2d2d33;
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 24px;
+            padding: 30px;
             text-align: center;
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card:hover {
-            border-color: #ffd700;
-            transform: translateY(-5px);
+            border-color: var(--gold);
+            transform: translateY(-8px);
         }
 
         .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #fff;
+            font-size: 2rem;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .price {
-            font-size: 1.5rem;
-            color: #ffd700;
-            margin-bottom: 20px;
-            font-weight: bold;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 25px;
+            font-weight: 700;
         }
 
-        .buy-btn {
-            display: block;
-            background: #ffd700;
-            color: #000;
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 14px;
+            border-radius: 12px;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
+            font-weight: 800;
             text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
 
-        /* Блок инструкции */
-        .rules-section {
-            max-width: 800px;
-            width: 100%;
-            margin-top: 60px;
-            padding: 30px;
+        .btn-buy {
+            background-color: var(--green);
+            color: #000;
+        }
+
+        .btn-info {
+            background-color: var(--gold);
+            color: #000;
+        }
+
+        .btn:hover {
+            filter: brightness(1.2);
+            transform: scale(1.02);
+        }
+
+        /* Инструкция */
+        .rules-box {
             background: #111114;
-            border-left: 4px solid #ffd700;
-            border-radius: 8px;
+            border-left: 5px solid var(--gold);
+            padding: 30px;
+            margin-top: 60px;
+            max-width: 800px;
+            width: 90%;
+            border-radius: 12px;
         }
 
-        .rules-section h3 {
-            color: #ffd700;
-            margin-top: 0;
-        }
+        .rules-box h3 { color: var(--gold); margin-top: 0; }
+        .rules-box p { color: #94a3b8; line-height: 1.6; }
 
-        .rules-list {
-            padding-left: 20px;
-            line-height: 1.8;
-            color: #94a3b8;
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 class="project-name">Spark Point</h1>
+    <h1 class="project-title">⚡ Spark Point 💎</h1>
+    <p style="color: #64748b;">Premium Web3 Project Packages</p>
 </header>
 
 <div class="container">
     <div class="card">
-        <h2>Flash</h2>
+        <h2>🚀 Flash</h2>
         <div class="price">1 500 ₽</div>
-        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="buy-btn" target="_blank">Купить</a>
+        <div class="btn-group">
+            <a href="#" class="btn btn-info" onclick="alert('Уровни: 3\nЗадачи: Базовый листинг\nДоход: до 15%')">Посмотреть пакет</a>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+        </div>
     </div>
 
     <div class="card">
-        <h2>Rapid</h2>
+        <h2>🏎️ Rapid</h2>
         <div class="price">3 000 ₽</div>
-        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="buy-btn" target="_blank">Купить</a>
+        <div class="btn-group">
+            <a href="#" class="btn btn-info" onclick="alert('Уровни: 5\nЗадачи: Стейкинг и фарминг\nДоход: до 25%')">Посмотреть пакет</a>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+        </div>
     </div>
 
     <div class="card">
-        <h2>Vault</h2>
+        <h2>🛡️ Vault</h2>
         <div class="price">7 500 ₽</div>
-        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="buy-btn" target="_blank">Купить</a>
+        <div class="btn-group">
+            <a href="#" class="btn btn-info" onclick="alert('Уровни: 8\nЗадачи: Управление пулами\nДоход: до 40%')">Посмотреть пакет</a>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+        </div>
     </div>
 
     <div class="card">
-        <h2>Validator</h2>
+        <h2>⚙️ Validator</h2>
         <div class="price">15 000 ₽</div>
-        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="buy-btn" target="_blank">Купить</a>
+        <div class="btn-group">
+            <a href="#" class="btn btn-info" onclick="alert('Уровни: 12\nЗадачи: Валидация транзакций\nДоход: до 60%')">Посмотреть пакет</a>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+        </div>
     </div>
 
     <div class="card">
-        <h2>Genesis</h2>
+        <h2>👑 Genesis</h2>
         <div class="price">30 000 ₽</div>
-        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="buy-btn" target="_blank">Купить</a>
+        <div class="btn-group">
+            <a href="#" class="btn btn-info" onclick="alert('Уровни: Безлимит\nЗадачи: Владение экосистемой\nДоход: VIP распределение')">Посмотреть пакет</a>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+        </div>
     </div>
 </div>
 
-<div class="rules-section">
-    <h3>Инструкция и правила участия:</h3>
-    <ol class="rules-list">
-        <li>Подключите свой Web3 кошелек к основной платформе.</li>
-        <li>Выберите один из пяти доступных пакетов Spark Point.</li>
-        <li>После подтверждения транзакции пакет активируется автоматически.</li>
-        <li>Доход и бонусы начисляются согласно смарт-контракту выбранного уровня.</li>
-        <li>Запрещено создание мультиаккаунтов для манипуляции реферальной системой.</li>
-    </ol>
+<div class="rules-box">
+    <h3>Инструкция и правила:</h3>
+    <p>1. Для участия необходим активный баланс в системе Spark Point.</p>
+    <p>2. Каждый пакет открывает доступ к определенному количеству уровней заработка.</p>
+    <p>3. Выплаты производятся автоматически на ваш привязанный кошелек.</p>
+    <p>4. Повторная покупка пакета того же уровня обновляет лимиты участия.</p>
 </div>
 
 </body>
