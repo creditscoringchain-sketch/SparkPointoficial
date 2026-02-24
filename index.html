@@ -10,110 +10,124 @@
             --green: #00ff88;
             --bg: #050505;
             --card: #121214;
+            --disabled: #334155;
         }
 
         body {
             background-color: var(--bg);
             color: #fff;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            line-height: 1.6;
+            padding-bottom: 50px;
         }
 
         header { text-align: center; padding: 60px 20px; }
-
         .project-title {
             color: var(--gold);
             font-size: 3.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin: 0;
             text-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
         }
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             max-width: 1200px;
             width: 90%;
-            margin-bottom: 50px;
         }
 
         .card {
             background: var(--card);
             border: 1px solid #222;
             border-radius: 24px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.3s;
         }
 
-        .card:hover {
-            border-color: var(--gold);
-            transform: translateY(-8px);
-        }
+        .price-tag { color: var(--gold); font-size: 2rem; font-weight: 800; margin: 15px 0; }
 
-        .card h2 { font-size: 2rem; margin: 10px 0; }
-
-        .price-tag {
-            font-size: 2.2rem;
-            color: var(--gold);
-            margin: 20px 0;
-            font-weight: 800;
-        }
-
-        .btn-group { display: flex; flex-direction: column; gap: 12px; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; }
 
         .btn {
-            padding: 16px;
+            padding: 15px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            cursor: pointer;
+            font-size: 0.9rem;
             border: none;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .btn-buy { background-color: var(--green); color: #000; }
-        .btn-info { background-color: var(--gold); color: #000; }
+        .btn-info { background: var(--gold); color: #000; }
 
-        .btn:hover { filter: brightness(1.2); transform: scale(1.02); }
+        /* Состояние заблокированной кнопки */
+        .btn-buy {
+            background-color: var(--disabled);
+            color: #64748b;
+            pointer-events: none; /* Нельзя нажать */
+            opacity: 0.5;
+        }
 
-        /* Блок правил */
+        /* Состояние активной кнопки */
+        .btn-buy.active {
+            background-color: var(--green);
+            color: #000;
+            pointer-events: auto;
+            opacity: 1;
+        }
+
         .legal-section {
-            max-width: 900px;
+            max-width: 800px;
             width: 90%;
             background: #0f0f11;
-            padding: 40px;
-            margin: 40px 0 80px 0;
+            padding: 30px;
+            margin: 40px 0;
             border-radius: 20px;
             border: 1px solid #1a1a1c;
         }
 
-        .legal-section h3 {
-            color: var(--gold);
-            font-size: 1.5rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 15px;
-            margin-top: 0;
+        .rule-item { margin-bottom: 15px; font-size: 0.9rem; color: #888; }
+        .rule-item b { color: var(--gold); display: block; }
+
+        /* Стили для чекбокса */
+        .agreement-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #1e1e22;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px dashed var(--gold);
+            cursor: pointer;
         }
 
-        .rule-item { margin-bottom: 20px; }
-        .rule-item b { color: #eee; display: block; margin-bottom: 5px; }
-        .rule-item p { color: #888; margin: 0; font-size: 0.95rem; }
+        .agreement-box input {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .agreement-box label {
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1 class="project-title">⚡ Spark Point 💎</h1>
-    <p style="color: #64748b;">Децентрализованная P2P экосистема</p>
+    <p style="color: #64748b;">Premium Web3 Matrix System</p>
 </header>
 
 <div class="container">
@@ -121,16 +135,17 @@
         <h2>🚀 Flash</h2>
         <div class="price-tag">50$</div>
         <div class="btn-group">
-            <button class="btn btn-info" onclick="alert('Тип: Скоростной\nУровней: 3\nВыход: 600$\nОсобенность: Самый быстрый заработок без промежуточного возврата.')">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+            <button class="btn btn-info" onclick="alert('Выход: 600$ | 3 уровня\nБез возврата входа.')">Посмотреть</button>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-link" target="_blank">Купить</a>
         </div>
     </div>
 
     <div class="card">
-        <h2>💰 Rapid</h2> <div class="price-tag">100$</div>
+        <h2>💰 Rapid</h2>
+        <div class="price-tag">100$</div>
         <div class="btn-group">
-            <button class="btn btn-info" onclick="alert('Тип: Скоростной\nУровней: 3\nВыход: 1200$\nОсобенность: Максимальная скорость закрытия циклов.')">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+            <button class="btn btn-info" onclick="alert('Выход: 1200$ | 3 уровня\nБез возврата входа.')">Посмотреть</button>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-link" target="_blank">Купить</a>
         </div>
     </div>
 
@@ -138,16 +153,17 @@
         <h2>🛡️ Vault</h2>
         <div class="price-tag">20$</div>
         <div class="btn-group">
-            <button class="btn btn-info" onclick="alert('Тип: Масштаб\nУровней: 10\nВыход: 100 000$\nОсобенность: Возврат входа после 2-х приглашенных.')">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+            <button class="btn btn-info" onclick="alert('Выход: 100 000$ | 10 уровней\nВозврат после 2-х человек.')">Посмотреть</button>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-link" target="_blank">Купить</a>
         </div>
     </div>
 
     <div class="card">
-        <h2>💵 Validator</h2> <div class="price-tag">50$</div>
+        <h2>💵 Validator</h2>
+        <div class="price-tag">50$</div>
         <div class="btn-group">
-            <button class="btn btn-info" onclick="alert('Тип: Масштаб\nУровней: 10\nВыход: 200 000$\nОсобенность: Безопасный старт и авто-апгрейды.')">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+            <button class="btn btn-info" onclick="alert('Выход: 200 000$ | 10 уровней\nВозврат после 2-х человек.')">Посмотреть</button>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-link" target="_blank">Купить</a>
         </div>
     </div>
 
@@ -155,35 +171,52 @@
         <h2>👑 Genesis</h2>
         <div class="price-tag">100$</div>
         <div class="btn-group">
-            <button class="btn btn-info" onclick="alert('Тип: Масштаб\nУровней: 10\nВыход: 400 000$\nОсобенность: VIP статус и полная автоматизация.')">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="btn btn-buy">Купить</a>
+            <button class="btn btn-info" onclick="alert('Выход: 400 000$ | 10 уровней\nВозврат после 2-х человек.')">Посмотреть</button>
+            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-link" target="_blank">Купить</a>
         </div>
     </div>
 </div>
 
 <div class="legal-section">
-    <h3>Инструкция и юридические правила участия</h3>
-    
+    <h3>Инструкция и правила</h3>
     <div class="rule-item">
-        <b>1. Природа системы</b>
-        <p>Spark Point является децентрализованным алгоритмом на смарт-контрактах. Это не инвестиционный фонд. Все транзакции являются добровольными безвозмездными взносами между участниками по принципу P2P.</p>
+        <b>1. P2P Система</b>
+        <p>Это децентрализованный алгоритм. Переводы идут напрямую между кошельками участников.</p>
+    </div>
+    <div class="rule-item">
+        <b>2. Условие возврата</b>
+        <p>В пакетах Vault, Validator, Genesis вход возвращается после 2-х приглашенных. В Flash и Rapid возврата нет.</p>
+    </div>
+    <div class="rule-item">
+        <b>3. Ответственность</b>
+        <p>Участник осознает риски и понимает, что доход зависит от его активности. Гарантий прибыли нет.</p>
     </div>
 
-    <div class="rule-item">
-        <b>2. Механика выплат и "Безопасный старт"</b>
-        <p>Для пакетов Vault, Validator и Genesis предусмотрен возврат суммы входа сразу после активации 2-х лично приглашенных участников. В пакетах Flash и Rapid возврат не предусмотрен — они работают на максимальную скорость достижения финальной цели.</p>
-    </div>
-
-    <div class="rule-item">
-        <b>3. Отсутствие гарантий и ответственности</b>
-        <p>Доход не является пассивным. Мы не гарантируем прибыль. Результат зависит исключительно от активности участника и его структуры. Смарт-контракт работает автономно: апгрейды уровней и распределение средств происходят автоматически. Участник берет на себя полную ответственность за свои действия и финансовые риски.</p>
-    </div>
-
-    <div class="rule-item">
-        <b>4. Условие участия</b>
-        <p>Обязательным условием для продвижения по маркетингу является приглашение минимум 2-х активных партнеров. Без выполнения этого условия алгоритм не сможет генерировать вознаграждения.</p>
+    <div class="agreement-box" onclick="toggleAgreement()">
+        <input type="checkbox" id="agreeCheck">
+        <label for="agreeCheck">Я прочитал правила и беру ответственность на себя</label>
     </div>
 </div>
+
+<script>
+    function toggleAgreement() {
+        const checkbox = document.getElementById('agreeCheck');
+        const buyButtons = document.querySelectorAll('.buy-link');
+        
+        // Переключаем состояние чекбокса при клике на весь блок
+        if (event.target.id !== 'agreeCheck') {
+            checkbox.checked = !checkbox.checked;
+        }
+
+        buyButtons.forEach(btn => {
+            if (checkbox.checked) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
