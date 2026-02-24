@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark Point | Web3 Ecosystem</title>
+    <title>Spark Point | Web3 Matrix</title>
     <style>
         :root {
             --gold: #ffcc00;
@@ -11,6 +11,7 @@
             --bg: #050505;
             --card: #121214;
             --text: #e2e8f0;
+            --red: #ff3e3e;
         }
 
         body {
@@ -21,318 +22,318 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 50px;
+            padding-bottom: 60px;
         }
 
+        /* Шапка и Языки */
         .top-bar {
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            padding: 20px;
+            padding: 15px 20px;
             box-sizing: border-box;
+            background: rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .lang-btn {
             background: #1e1e22;
             color: var(--gold);
             border: 1px solid var(--gold);
-            padding: 5px 15px;
+            padding: 5px 12px;
             cursor: pointer;
-            margin-left: 10px;
-            border-radius: 5px;
+            margin-left: 8px;
+            border-radius: 6px;
             font-weight: bold;
+            font-size: 12px;
         }
 
         .lang-btn.active { background: var(--gold); color: #000; }
 
-        header { text-align: center; padding: 20px 0 40px; }
+        header { text-align: center; padding: 30px 0; }
         .project-title {
             color: var(--gold);
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+            text-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
             margin: 0;
         }
 
+        /* Карточки */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1100px;
             width: 90%;
         }
 
         .card {
             background: var(--card);
             border: 1px solid #222;
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 25px;
             text-align: center;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
-        .price-tag { color: var(--gold); font-size: 2rem; font-weight: 800; margin: 15px 0; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .price-tag { color: var(--gold); font-size: 2.2rem; font-weight: 800; margin: 15px 0; }
 
-        .btn-group { display: flex; flex-direction: column; gap: 10px; }
-
+        /* Кнопки */
         .btn {
-            padding: 15px;
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
             border: none;
             cursor: pointer;
+            font-size: 14px;
             transition: 0.3s;
         }
 
         .btn-info { background: var(--gold); color: #000; }
         .btn-buy {
-            background: #334155;
-            color: #64748b;
+            background: #2a2a2e;
+            color: #555;
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.6;
         }
         .btn-buy.active {
             background: var(--green);
             color: #000;
             pointer-events: auto;
             opacity: 1;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
         }
 
-        /* Кнопки действий */
-        .actions-box {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        /* Центр управления */
+        .actions {
             margin: 40px 0;
             width: 90%;
-            max-width: 400px;
-        }
-
-        .btn-video {
-            background: #ff0000;
-            color: #fff;
+            max-width: 450px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .btn-rules {
-            background: transparent;
-            color: var(--gold);
-            border: 1px dashed var(--gold);
-        }
+        .btn-video { background: var(--red); color: white; border: none; }
+        .btn-rules { background: transparent; color: var(--gold); border: 1px dashed var(--gold); }
 
-        /* Модальное окно для видео */
+        /* Модалка Видео */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
-        .modal-content {
-            width: 90%;
-            max-width: 800px;
-            position: relative;
-        }
+        .modal-content { width: 95%; max-width: 800px; position: relative; }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 12px; overflow: hidden; }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .close { position: absolute; top: -45px; right: 0; color: #fff; font-size: 35px; cursor: pointer; }
 
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            border-radius: 15px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: -40px; right: 0;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        #rules-content {
+        /* Блок Инструкции */
+        #rules-block {
             display: none;
             max-width: 800px;
             width: 90%;
             background: #0f0f11;
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid #1a1a1c;
-            margin-bottom: 40px;
-            box-sizing: border-box;
+            padding: 25px;
+            border-radius: 18px;
+            border: 1px solid #222;
+            margin-bottom: 30px;
         }
 
-        .agreement-box {
+        .rules-text h3 { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .rules-text p { font-size: 0.95rem; line-height: 1.6; color: #b0b0b0; }
+        .rules-text b { color: #fff; }
+
+        /* Галочка */
+        .agree-container {
             display: flex;
             align-items: center;
-            gap: 15px;
-            background: #1e1e22;
-            padding: 20px;
+            gap: 12px;
+            background: #161618;
+            padding: 18px;
             border-radius: 12px;
-            margin-top: 30px;
             border: 1px solid var(--green);
+            margin-top: 25px;
             cursor: pointer;
         }
+
+        .agree-container input { width: 22px; height: 22px; cursor: pointer; accent-color: var(--green); }
     </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <button id="btn-ru" class="lang-btn active" onclick="changeLang('ru')">RU</button>
-    <button id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</button>
+    <button id="btn-ru" class="lang-btn active" onclick="setLang('ru')">RU</button>
+    <button id="btn-en" class="lang-btn" onclick="setLang('en')">EN</button>
 </div>
 
 <header>
     <h1 class="project-title">⚡ SPARK POINT 💎</h1>
-    <p id="tagline" style="color: #64748b;">Premium Web3 Matrix System</p>
+    <p id="sub-title" style="color: #64748b; margin-top: 10px;">Premium Web3 Matrix Ecosystem</p>
 </header>
 
 <div class="container">
     <div class="card">
         <h2>🚀 Flash</h2>
         <div class="price-tag">50$</div>
-        <div class="btn-group">
-            <button class="btn btn-info view-text" onclick="alertInfo(0)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-text">Купить</a>
-        </div>
+        <button class="btn btn-info lang-view" onclick="showInfo(0)">Посмотреть</button>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy">Купить</a>
     </div>
+
     <div class="card">
         <h2>💰 Rapid</h2>
         <div class="price-tag">100$</div>
-        <div class="btn-group">
-            <button class="btn btn-info view-text" onclick="alertInfo(1)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-text">Купить</a>
-        </div>
+        <button class="btn btn-info lang-view" onclick="showInfo(1)">Посмотреть</button>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy">Купить</a>
     </div>
+
     <div class="card">
         <h2>🛡️ Vault</h2>
         <div class="price-tag">20$</div>
-        <div class="btn-group">
-            <button class="btn btn-info view-text" onclick="alertInfo(2)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-text">Купить</a>
-        </div>
+        <button class="btn btn-info lang-view" onclick="showInfo(2)">Посмотреть</button>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy">Купить</a>
     </div>
+
     <div class="card">
         <h2>💵 Validator</h2>
         <div class="price-tag">50$</div>
-        <div class="btn-group">
-            <button class="btn btn-info view-text" onclick="alertInfo(3)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-text">Купить</a>
-        </div>
+        <button class="btn btn-info lang-view" onclick="showInfo(3)">Посмотреть</button>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy">Купить</a>
     </div>
+
     <div class="card">
         <h2>👑 Genesis</h2>
         <div class="price-tag">100$</div>
-        <div class="btn-group">
-            <button class="btn btn-info view-text" onclick="alertInfo(4)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy buy-text">Купить</a>
-        </div>
+        <button class="btn btn-info lang-view" onclick="showInfo(4)">Посмотреть</button>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy">Купить</a>
     </div>
 </div>
 
-<div class="actions-box">
-    <button class="btn btn-video" onclick="openVideo()">
-        <span>📺</span> <span id="btn-video-text">Видео инструкция регистрации</span>
-    </button>
-    <button class="btn btn-rules" id="toggle-btn" onclick="toggleRules()">Открыть инструкцию и правила</button>
+<div class="actions">
+    <button class="btn btn-video" onclick="openVid()">📺 <span id="txt-vid-btn">Видео инструкция регистрации</span></button>
+    <button class="btn btn-rules" id="txt-rules-btn" onclick="toggleRules()">Открыть инструкцию и правила</button>
 </div>
 
-<div id="videoModal" class="modal" onclick="closeVideo()">
+<div id="vidModal" class="modal" onclick="closeVid()">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <span class="close-modal" onclick="closeVideo()">&times;</span>
-        <div class="video-wrapper">
-            <iframe id="youtube-frame" src="" frameborder="0" allowfullscreen></iframe>
+        <span class="close" onclick="closeVid()">&times;</span>
+        <div class="video-box">
+            <iframe id="yt-player" src="" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </div>
 
-<div id="rules-content">
-    <div id="text-block" class="rule-block"></div>
-    <div class="agreement-box" onclick="handleAgree()">
-        <input type="checkbox" id="agreeCheck">
-        <label for="agreeCheck" id="agree-label" style="cursor:pointer">Я прочитал правила и беру ответственность на себя</label>
+<div id="rules-block">
+    <div id="full-text" class="rules-text"></div>
+    <div class="agree-container" onclick="handleCheck()">
+        <input type="checkbox" id="mainCheck">
+        <label for="mainCheck" id="txt-agree" style="cursor:pointer">Я прочитал правила и беру ответственность на себя</label>
     </div>
 </div>
 
 <script>
-    const content = {
+    const data = {
         ru: {
-            tagline: "Premium Web3 Matrix System",
-            toggle: "Открыть инструкцию и правила",
-            video: "Видео инструкция регистрации",
+            vidBtn: "Видео инструкция регистрации",
+            rulesBtn: "Открыть инструкцию и правила",
+            agree: "Я прочитал правила и беру ответственность на себя",
             view: "Посмотреть",
             buy: "Купить",
-            agreeLabel: "Я прочитал правила и беру ответственность на себя",
-            info: ["Flash: 600$", "Rapid: 1200$", "Vault: 100k$", "Validator: 200k$", "Genesis: 400k$"],
-            rules: `<h3>1. Классификация</h3><p>Скоростные (Flash, Rapid) - без возврата. Масштабные (Vault, Validator, Genesis) - возврат после 2-х чел.</p><h3>2. Disclaimer</h3><p>Это P2P платформа. Не инвестиция. Выплаты зависят от активности.</p>`
+            info: ["Flash: 600$ доход", "Rapid: 1200$ доход", "Vault: Возврат после 2-х", "Validator: Возврат после 2-х", "Genesis: Возврат после 2-х"],
+            rules: `
+                <h3>ПРАВИЛА УЧАСТИЯ И ИНСТРУКЦИЯ</h3>
+                <p><b>1. Классификация пакетов</b><br>
+                • <b>Скоростные (Flash, Rapid):</b> Предназначены для максимально быстрого прохождения 3-х уровней. Весь входящий поток средств направлен на достижение финальной выплаты ($600 или $1200). Входная сумма не возвращается отдельно, а включена в общую прибыль на выходе.<br>
+                • <b>Масштабные (Vault, Validator, Genesis):</b> Пакеты на 10 уровней с функцией «Безопасного старта». Как только вы приглашаете 2-х участников, смарт-контракт мгновенно возвращает сумму вашего входа на ваш личный кошелек. Дальнейшее участие — это работа с чистой прибылью.</p>
+                <p><b>2. Механика работы смарт-контракта</b><br>
+                • Все процессы происходят на автопилоте.<br>
+                • Смарт-контракт децентрализован: у администрации нет доступа к вашим средствам.<br>
+                • Ваша задача: Пригласить минимум 2-х активных участников.</p>
+                <p><b>3. Юридический отказ (Disclaimer)</b><br>
+                • <b>Это не инвестиции:</b> Spark Point — это краудфандинговая P2P-платформа. Мы не обещаем пассивный доход.<br>
+                • <b>Отсутствие гарантий:</b> Результат напрямую зависит от вашей активности. Если вы не приглашаете участников, доход не генерируется.<br>
+                • <b>Никаких возвратов:</b> Вход является добровольным взносом за активацию смарт-контракта.</p>
+            `
         },
         en: {
-            tagline: "Premium Web3 Matrix System",
-            toggle: "Open Rules & Instructions",
-            video: "Registration Video Guide",
+            vidBtn: "Registration Video Guide",
+            rulesBtn: "Open Instructions & Rules",
+            agree: "I have read the rules and take responsibility",
             view: "View",
             buy: "Buy",
-            agreeLabel: "I agree to the rules and take responsibility",
-            info: ["Flash: 600$", "Rapid: 1200$", "Vault: 100k$", "Validator: 200k$", "Genesis: 400k$"],
-            rules: `<h3>1. Classification</h3><p>Speed (Flash, Rapid) - no return. Scale (Vault, Validator, Genesis) - return after 2 invites.</p><h3>2. Disclaimer</h3><p>P2P Platform. Not an investment. Income depends on activity.</p>`
+            info: ["Flash: 600$ Profit", "Rapid: 1200$ Profit", "Vault: Return after 2", "Validator: Return after 2", "Genesis: Return after 2"],
+            rules: `
+                <h3>PARTICIPATION RULES</h3>
+                <p><b>1. Package Classification</b><br>
+                • <b>Speed (Flash, Rapid):</b> Designed for 3-level completion. Entry fee is part of the final profit ($600 or $1200).<br>
+                • <b>Scale (Vault, Validator, Genesis):</b> 10-level packages with "Safe Start". Entry fee returns after inviting 2 members.</p>
+                <p><b>2. Smart Contract</b><br>
+                • All processes are automated.<br>
+                • Decentralized: No admin access to funds.<br>
+                • Task: Invite at least 2 active members.</p>
+                <p><b>3. Disclaimer</b><br>
+                • <b>Not investment:</b> P2P crowdfunding platform.<br>
+                • <b>No Guarantees:</b> Results depend on your activity.<br>
+                • <b>No Refunds:</b> Entry is a voluntary fee for contract activation.</p>
+            `
         }
     };
 
-    let currentLang = 'ru';
+    let cur = 'ru';
 
-    function changeLang(lang) {
-        currentLang = lang;
-        document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
-        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-        document.getElementById('tagline').innerText = content[lang].tagline;
-        document.getElementById('toggle-btn').innerText = content[lang].toggle;
-        document.getElementById('btn-video-text').innerText = content[lang].video;
-        document.getElementById('agree-label').innerText = content[lang].agreeLabel;
-        document.getElementById('text-block').innerHTML = content[lang].rules;
-        document.querySelectorAll('.view-text').forEach(el => el.innerText = content[lang].view);
-        document.querySelectorAll('.buy-text').forEach(el => el.innerText = content[lang].buy);
-    }
-
-    function openVideo() {
-        document.getElementById('youtube-frame').src = "https://www.youtube.com/embed/KoYDCQw07Xs?autoplay=1";
-        document.getElementById('videoModal').style.display = 'flex';
-    }
-
-    function closeVideo() {
-        document.getElementById('videoModal').style.display = 'none';
-        document.getElementById('youtube-frame').src = "";
+    function setLang(l) {
+        cur = l;
+        document.getElementById('btn-ru').classList.toggle('active', l==='ru');
+        document.getElementById('btn-en').classList.toggle('active', l==='en');
+        document.getElementById('txt-vid-btn').innerText = data[l].vidBtn;
+        document.getElementById('txt-rules-btn').innerText = data[l].rulesBtn;
+        document.getElementById('txt-agree').innerText = data[l].agree;
+        document.getElementById('full-text').innerHTML = data[l].rules;
+        document.querySelectorAll('.lang-view').forEach(b => b.innerText = data[l].view);
+        document.querySelectorAll('.lang-buy').forEach(b => b.innerText = data[l].buy);
     }
 
     function toggleRules() {
-        const div = document.getElementById('rules-content');
-        div.style.display = (div.style.display === 'block') ? 'none' : 'block';
+        const b = document.getElementById('rules-block');
+        b.style.display = b.style.display === 'block' ? 'none' : 'block';
     }
 
-    function alertInfo(index) { alert(content[currentLang].info[index]); }
+    function openVid() {
+        document.getElementById('yt-player').src = "https://www.youtube.com/embed/KoYDCQw07Xs?autoplay=1";
+        document.getElementById('vidModal').style.display = 'flex';
+    }
 
-    function handleAgree() {
-        const check = document.getElementById('agreeCheck');
-        if (event.target.id !== 'agreeCheck') check.checked = !check.checked;
-        document.querySelectorAll('.buy-text').forEach(btn => {
-            if (check.checked) btn.classList.add('active');
-            else btn.classList.remove('active');
+    function closeVid() {
+        document.getElementById('vidModal').style.display = 'none';
+        document.getElementById('yt-player').src = "";
+    }
+
+    function showInfo(i) { alert(data[cur].info[i]); }
+
+    function handleCheck() {
+        const c = document.getElementById('mainCheck');
+        if(event.target.id !== 'mainCheck') c.checked = !c.checked;
+        document.querySelectorAll('.lang-buy').forEach(btn => {
+            btn.classList.toggle('active', c.checked);
         });
     }
 
-    changeLang('ru');
+    setLang('ru');
 </script>
 </body>
 </html>
