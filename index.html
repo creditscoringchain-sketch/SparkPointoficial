@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Point — Пакеты проектов</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #4f46e5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            margin-bottom: 10px; 
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 90%;
+            padding-bottom: 80px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .card h2 { 
+            margin-top: 0; 
+            font-size: 1.8rem;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 25px 0;
+            color: var(--dark);
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            font-size: 1rem;
+            line-height: 2;
+            color: #475569;
+            flex-grow: 1;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: var(--primary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .buy-btn {
+            display: block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: background 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Выделение центрального пакета */
+        .card.popular {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        .card.popular::before {
+            content: "POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Spark Point</h1>
+    <p class="subtitle">Инвестируйте в готовые решения для вашего бизнеса</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Start</h2>
+        <div class="price">1 500 ₽</div>
+        <ul class="features">
+            <li>1 Базовый проект</li>
+            <li>Поддержка 24/7</li>
+            <li>Документация</li>
+        </ul>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="buy-btn">Купить пакет</a>
+    </div>
+
+    <div class="card">
+        <h2>Standard</h2>
+        <div class="price">3 000 ₽</div>
+        <ul class="features">
+            <li>3 Проекта</li>
+            <li>Исходный код</li>
+            <li>Приоритетная поддержка</li>
+        </ul>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="buy-btn">Купить пакет</a>
+    </div>
+
+    <div class="card popular">
+        <h2>Pro</h2>
+        <div class="price">7 500 ₽</div>
+        <ul class="features">
+            <li>5 Проектов</li>
+            <li>Личный консультант</li>
+            <li>Доступ к обновлениям</li>
+        </ul>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="buy-btn">Купить пакет</a>
+    </div>
+
+    <div class="card">
+        <h2>Business</h2>
+        <div class="price">15 000 ₽</div>
+        <ul class="features">
+            <li>10 Проектов</li>
+            <li>Маркетинговый план</li>
+            <li>Помощь в деплое</li>
+        </ul>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="buy-btn">Купить пакет</a>
+    </div>
+
+    <div class="card">
+        <h2>Enterprise</h2>
+        <div class="price">30 000 ₽</div>
+        <ul class="features">
+            <li>Все проекты</li>
+            <li>Брендирование под ключ</li>
+            <li>VIP сопровождение</li>
+        </ul>
+        <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" target="_blank" class="buy-btn">Купить пакет</a>
+    </div>
+</div>
+
+</body>
+</html>
+
