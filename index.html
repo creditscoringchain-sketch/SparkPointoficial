@@ -24,7 +24,6 @@
             padding-bottom: 50px;
         }
 
-        /* Шапка и переключатель языка */
         .top-bar {
             width: 100%;
             display: flex;
@@ -52,14 +51,13 @@
         header { text-align: center; padding: 20px 0 40px; }
         .project-title {
             color: var(--gold);
-            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-size: 3rem;
             font-weight: 900;
             text-transform: uppercase;
             text-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
             margin: 0;
         }
 
-        /* Сетка карточек */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -77,8 +75,6 @@
             transition: 0.3s;
         }
 
-        .card:hover { border-color: var(--gold); }
-
         .price-tag { color: var(--gold); font-size: 2rem; font-weight: 800; margin: 15px 0; }
 
         .btn-group { display: flex; flex-direction: column; gap: 10px; }
@@ -89,10 +85,8 @@
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.85rem;
             border: none;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .btn-info { background: var(--gold); color: #000; }
@@ -117,11 +111,10 @@
             border: 1px dashed var(--gold);
             padding: 15px 30px;
             cursor: pointer;
-            font-size: 1.1rem;
             border-radius: 10px;
         }
 
-        /* Скрытая инструкция */
+        /* Блок инструкции (скрыт по умолчанию) */
         #rules-content {
             display: none;
             max-width: 800px;
@@ -131,10 +124,11 @@
             border-radius: 20px;
             border: 1px solid #1a1a1c;
             margin-bottom: 40px;
+            box-sizing: border-box;
         }
 
         .rule-block h3 { color: var(--gold); margin-top: 20px; }
-        .rule-block p { color: #888; font-size: 0.95rem; white-space: pre-line; }
+        .rule-block p { color: #888; font-size: 0.95rem; line-height: 1.6; }
 
         .agreement-box {
             display: flex;
@@ -147,163 +141,167 @@
             border: 1px solid var(--green);
             cursor: pointer;
         }
+        
+        .agreement-box input { width: 20px; height: 20px; }
     </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button id="btn-ru" class="lang-btn active" onclick="changeLang('ru')">RU</button>
+    <button id="btn-en" class="lang-btn" onclick="changeLang('en')">EN</button>
 </div>
 
 <header>
-    <h1 class="project-title">⚡ Spark Point 💎</h1>
+    <h1 class="project-title">⚡ SPARK POINT 💎</h1>
     <p id="tagline" style="color: #64748b;">Premium Web3 Matrix System</p>
 </header>
 
 <div class="container">
     <div class="card">
-        <h2 id="p1-name">🚀 Flash</h2>
+        <h2>🚀 Flash</h2>
         <div class="price-tag">50$</div>
         <div class="btn-group">
-            <button class="btn btn-info lang-view" onclick="showCardInfo(1)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy" target="_blank">Купить</a>
+            <button class="btn btn-info view-text" onclick="alertInfo(0)">Посмотреть</button>
+            <a href="ССЫЛКА_НА_ОПЛАТУ" class="btn btn-buy buy-text">Купить</a>
         </div>
     </div>
-
     <div class="card">
-        <h2 id="p2-name">💰 Rapid</h2>
+        <h2>💰 Rapid</h2>
         <div class="price-tag">100$</div>
         <div class="btn-group">
-            <button class="btn btn-info lang-view" onclick="showCardInfo(2)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy" target="_blank">Купить</a>
+            <button class="btn btn-info view-text" onclick="alertInfo(1)">Посмотреть</button>
+            <a href="ССЫЛКА_НА_ОПЛАТУ" class="btn btn-buy buy-text">Купить</a>
         </div>
     </div>
-
     <div class="card">
-        <h2 id="p3-name">🛡️ Vault</h2>
+        <h2>🛡️ Vault</h2>
         <div class="price-tag">20$</div>
         <div class="btn-group">
-            <button class="btn btn-info lang-view" onclick="showCardInfo(3)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy" target="_blank">Купить</a>
+            <button class="btn btn-info view-text" onclick="alertInfo(2)">Посмотреть</button>
+            <a href="ССЫЛКА_НА_ОПЛАТУ" class="btn btn-buy buy-text">Купить</a>
         </div>
     </div>
-
     <div class="card">
-        <h2 id="p4-name">💵 Validator</h2>
+        <h2>💵 Validator</h2>
         <div class="price-tag">50$</div>
         <div class="btn-group">
-            <button class="btn btn-info lang-view" onclick="showCardInfo(4)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy" target="_blank">Купить</a>
+            <button class="btn btn-info view-text" onclick="alertInfo(3)">Посмотреть</button>
+            <a href="ССЫЛКА_НА_ОПЛАТУ" class="btn btn-buy buy-text">Купить</a>
         </div>
     </div>
-
     <div class="card">
-        <h2 id="p5-name">👑 Genesis</h2>
+        <h2>👑 Genesis</h2>
         <div class="price-tag">100$</div>
         <div class="btn-group">
-            <button class="btn btn-info lang-view" onclick="showCardInfo(5)">Посмотреть</button>
-            <a href="https://creditscoringchain-sketch.github.io/SparkPoint303/?ref=0xc50970499f45d8e6fd943a09407ca8121379991" class="btn btn-buy lang-buy" target="_blank">Купить</a>
+            <button class="btn btn-info view-text" onclick="alertInfo(4)">Посмотреть</button>
+            <a href="ССЫЛКА_НА_ОПЛАТУ" class="btn btn-buy buy-text">Купить</a>
         </div>
     </div>
 </div>
 
-<button class="rules-trigger" id="rules-btn" onclick="toggleRules()">Открыть инструкцию и правила</button>
+<button class="rules-trigger" id="toggle-btn" onclick="toggleRules()">Открыть инструкцию и правила</button>
 
 <div id="rules-content">
-    <div class="rule-block" id="full-rules">
+    <div id="text-block" class="rule-block">
         </div>
 
-    <div class="agreement-box" onclick="agree()">
+    <div class="agreement-box" onclick="handleAgree()">
         <input type="checkbox" id="agreeCheck">
-        <label for="agreeCheck" id="label-agree">Я прочитал правила и беру ответственность на себя</label>
+        <label for="agreeCheck" id="agree-label" style="cursor:pointer">Я прочитал правила и беру ответственность на себя</label>
     </div>
 </div>
 
 <script>
-    const translations = {
+    const content = {
         ru: {
             tagline: "Premium Web3 Matrix System",
+            toggle: "Открыть инструкцию и правила",
             view: "Посмотреть",
             buy: "Купить",
-            rulesBtn: "Открыть инструкцию и правила",
-            agree: "Я прочитал правила и беру ответственность на себя",
-            rulesText: `<h3>1. Классификация пакетов</h3>
-            <p><b>Скоростные (Flash, Rapid):</b> Предназначены для максимально быстрого прохождения 3-х уровней. Входная сумма не возвращается отдельно, а включена в общую прибыль на выходе ($600 или $1200).</p>
-            <p><b>Масштабные (Vault, Validator, Genesis):</b> Пакеты на 10 уровней с функцией «Безопасного старта». Как только вы приглашаете 2-х участников, смарт-контракт мгновенно возвращает сумму вашего входа на ваш личный кошелек.</p>
-            <h3>2. Механика работы</h3>
-            <p>Все процессы происходят на автопилоте. Смарт-контракт децентрализован: у администрации нет доступа к вашим средствам. Ваша задача: пригласить минимум 2-х активных участников.</p>
-            <h3>3. Юридический отказ (Disclaimer)</h3>
-            <p>Это не инвестиции, а краудфандинговая P2P-платформа. Мы не обещаем пассивный доход. Результат зависит от вашей активности. Вход является добровольным взносом за активацию кода.</p>`,
+            agreeLabel: "Я прочитал правила и беру ответственность на себя",
             info: [
-                "Выход: 600$ | 3 уровня. Быстрый цикл.",
-                "Выход: 1200$ | 3 уровня. Высокая скорость.",
-                "Выход: 100 000$ | 10 уровней. Возврат после 2-х чел.",
-                "Выход: 200 000$ | 10 уровней. Возврат после 2-х чел.",
-                "Выход: 400 000$ | 10 уровней. Полная автоматизация."
-            ]
+                "Flash: Выход 600$. 3 уровня. Без возврата входа.",
+                "Rapid: Выход 1200$. 3 уровня. Без возврата входа.",
+                "Vault: Выход 100 000$. 10 уровней. Возврат после 2-х участников.",
+                "Validator: Выход 200 000$. 10 уровней. Возврат после 2-х участников.",
+                "Genesis: Выход 400 000$. 10 уровней. Возврат после 2-х участников."
+            ],
+            rules: `
+                <h3>1. Классификация пакетов</h3>
+                <p><b>Скоростные (Flash, Rapid):</b> Предназначены для максимально быстрого прохождения 3-х уровней. Весь входящий поток средств направлен на достижение финальной выплаты ($600 или $1200). Входная сумма включена в общую прибыль.</p>
+                <p><b>Масштабные (Vault, Validator, Genesis):</b> Пакеты на 10 уровней с функцией «Безопасного старта». Как только вы приглашаете 2-х участников, смарт-контракт мгновенно возвращает сумму вашего входа на ваш личный кошелек.</p>
+                <h3>2. Механика работы</h3>
+                <p>Все процессы (распределение средств, апгрейды уровней, выплаты) происходят на автопилоте. Смарт-контракт децентрализован: у администрации нет доступа к вашим средствам.</p>
+                <h3>3. Юридический отказ (Disclaimer)</h3>
+                <p>Это не инвестиции, а краудфандинговая P2P-платформа. Мы не обещаем пассивный доход. Результат зависит от вашей активности. Участник берет на себя все риски.</p>
+                <h3>4. Условие участия</h3>
+                <p>Ваша задача: Пригласить минимум 2-х активных участников. Всё остальное делает программный код.</p>
+            `
         },
         en: {
             tagline: "Premium Web3 Matrix System",
+            toggle: "Open Instructions and Rules",
             view: "View",
             buy: "Buy",
-            rulesBtn: "Open Instructions & Rules",
-            agree: "I have read the rules and take full responsibility",
-            rulesText: `<h3>1. Package Classification</h3>
-            <p><b>Speed (Flash, Rapid):</b> Designed for fast 3-level completion. The entry fee is not returned separately but included in the final profit ($600 or $1200).</p>
-            <p><b>Scalable (Vault, Validator, Genesis):</b> 10-level packages with a "Safe Start" feature. Once you invite 2 participants, the smart contract instantly returns your entry fee.</p>
-            <h3>2. How it works</h3>
-            <p>All processes are on autopilot. The smart contract is decentralized: admin has no access to your funds. Your task: invite at least 2 active participants.</p>
-            <h3>3. Disclaimer</h3>
-            <p>This is not an investment, but a P2P crowdfunding platform. We do not promise passive income. Results depend on your activity. Entry is a voluntary fee for code activation.</p>`,
+            agreeLabel: "I have read the rules and take full responsibility",
             info: [
-                "Exit: $600 | 3 levels. Fast cycle.",
-                "Exit: $1200 | 3 levels. High speed.",
-                "Exit: $100,000 | 10 levels. Return after 2 invites.",
-                "Exit: $200,000 | 10 levels. Return after 2 invites.",
-                "Exit: $400,000 | 10 levels. Full automation."
-            ]
+                "Flash: Exit 600$. 3 levels. No entry return.",
+                "Rapid: Exit 1200$. 3 levels. No entry return.",
+                "Vault: Exit 100 000$. 10 levels. Return after 2 invites.",
+                "Validator: Exit 200 000$. 10 levels. Return after 2 invites.",
+                "Genesis: Exit 400 000$. 10 levels. Return after 2 invites."
+            ],
+            rules: `
+                <h3>1. Package Classification</h3>
+                <p><b>Speed (Flash, Rapid):</b> Designed for 3-level completion. All funds go toward the final payout ($600 or $1200). Entry fee is part of the profit.</p>
+                <p><b>Scalable (Vault, Validator, Genesis):</b> 10-level packages with "Safe Start". Once you invite 2 members, the entry fee returns to your wallet immediately.</p>
+                <h3>2. How it works</h3>
+                <p>All processes are on autopilot via smart-contract. Admin has no access to funds. Your task: invite 2 active members.</p>
+                <h3>3. Disclaimer</h3>
+                <p>Not an investment. P2P crowdfunding. No passive income promised. Results depend on your activity. Participant takes all risks.</p>
+            `
         }
     };
 
     let currentLang = 'ru';
 
-    function setLang(lang) {
+    function changeLang(lang) {
         currentLang = lang;
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        event.target.classList.add('active');
-
-        document.getElementById('tagline').innerText = translations[lang].tagline;
-        document.getElementById('rules-btn').innerText = translations[lang].rulesBtn;
-        document.getElementById('label-agree').innerText = translations[lang].agree;
-        document.getElementById('full-rules').innerHTML = translations[lang].rulesText;
+        document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
         
-        document.querySelectorAll('.lang-view').forEach(b => b.innerText = translations[lang].view);
-        document.querySelectorAll('.lang-buy').forEach(b => b.innerText = translations[lang].buy);
+        document.getElementById('tagline').innerText = content[lang].tagline;
+        document.getElementById('toggle-btn').innerText = content[lang].toggle;
+        document.getElementById('agree-label').innerText = content[lang].agreeLabel;
+        document.getElementById('text-block').innerHTML = content[lang].rules;
+        
+        document.querySelectorAll('.view-text').forEach(el => el.innerText = content[lang].view);
+        document.querySelectorAll('.buy-text').forEach(el => el.innerText = content[lang].buy);
     }
 
     function toggleRules() {
-        const content = document.getElementById('rules-content');
-        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+        const div = document.getElementById('rules-content');
+        div.style.display = (div.style.display === 'block') ? 'none' : 'block';
     }
 
-    function showCardInfo(id) {
-        alert(translations[currentLang].info[id-1]);
+    function alertInfo(index) {
+        alert(content[currentLang].info[index]);
     }
 
-    function agree() {
-        const cb = document.getElementById('agreeCheck');
-        if (event.target.id !== 'agreeCheck') cb.checked = !cb.checked;
+    function handleAgree() {
+        const check = document.getElementById('agreeCheck');
+        if (event.target.id !== 'agreeCheck') check.checked = !check.checked;
         
-        const buyBtns = document.querySelectorAll('.lang-buy');
+        const buyBtns = document.querySelectorAll('.buy-text');
         buyBtns.forEach(btn => {
-            if (cb.checked) btn.classList.add('active');
+            if (check.checked) btn.classList.add('active');
             else btn.classList.remove('active');
         });
     }
 
-    // Инициализация
-    setLang('ru');
+    // Запуск RU при старте
+    changeLang('ru');
 </script>
 
 </body>
